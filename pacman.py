@@ -137,9 +137,9 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
+                vector(9, 0),
+                vector(-7, 0),
+                vector(0, 8),
                 vector(0, -5),
             ]
             plan = choice(options)
@@ -147,16 +147,16 @@ def move():
             course.y = plan.y
 
         up()
-        goto(point.x + 10, point.y + 10)
+        goto(point.x + 13, point.y + 10)
         dot(20, 'red')
 
     update()
 
     for point, course in ghosts:
-        if abs(pacman - point) < 20:
+        if abs(pacman - point) < 10:
             return
 
-    ontimer(move, 20)
+    ontimer(move, 50)
 
 
 def change(x, y):
