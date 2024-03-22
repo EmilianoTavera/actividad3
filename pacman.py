@@ -27,6 +27,7 @@ ghosts = [
 ]
 # fmt: off
 
+#SE MODIFICO MANUALMENTE EL TABLERO
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -131,7 +132,7 @@ def move():
     up()
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
-
+    #SE CAMBIARON LOS VECTORES DE LOS FANTASMAS
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -151,11 +152,11 @@ def move():
         dot(20, 'red')
 
     update()
-
+    #SE CAMBIO PARA QUE REACCIONEN ANTES
     for point, course in ghosts:
         if abs(pacman - point) < 10:
             return
-
+    #SE MOVIO PARA QUE TODO FUERA MÁS RÁPIDO
     ontimer(move, 50)
 
 
